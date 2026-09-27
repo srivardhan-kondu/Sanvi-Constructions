@@ -7,8 +7,9 @@ import { IMG } from "@/lib/data";
 const LINKS = [
   { href: "#idea", label: "01 The Idea" },
   { href: "#philosophy", label: "02 Philosophy" },
-  { href: "#work", label: "03 Work" },
-  { href: "#materials", label: "04 Materials" },
+  { href: "#services", label: "03 Services" },
+  { href: "#work", label: "04 Work" },
+  { href: "#materials", label: "05 Materials" },
 ];
 
 export default function Header() {
@@ -37,9 +38,12 @@ export default function Header() {
       </div>
 
       <header className={`site-header${solid ? " solid" : ""}`}>
-        <a href="#top" className="logolink">
-          <Image className="logo-dark" src={IMG.logoDark} alt="Shanvi Constructions" width={1254} height={1254} priority />
-          <Image className="logo-light" src={IMG.logoLight} alt="" width={1254} height={1254} priority />
+        <a href="#top" className="logolink" aria-label="Shanvi Constructions — home">
+          <Image className="logo-icon" src={IMG.icon} alt="" width={719} height={730} priority />
+          <span className="logo-words">
+            <Image className="logo-dark" src={IMG.wordmarkDark} alt="" width={1090} height={192} priority />
+            <Image className="logo-light" src={IMG.wordmarkLight} alt="" width={1090} height={192} priority />
+          </span>
         </a>
         <nav className="site-nav">
           {LINKS.map((l) => (

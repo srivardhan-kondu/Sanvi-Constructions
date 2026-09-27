@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { IMG } from "@/lib/data";
+import { IMG, VIDEO } from "@/lib/data";
 
-/** Blueprint line drawing that sketches itself before the photo takes over. */
+/** Blueprint line drawing that sketches itself before the footage takes over. */
 const LINES = [
   { d: "M420 560 L420 230 L600 150 L600 560", anim: "1.6s ease .25s" },
   { d: "M640 560 L640 200 L790 250 L790 560", anim: "1.6s ease .6s" },
@@ -19,9 +18,20 @@ const RULES = [
 
 export default function Hero() {
   const bgRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
 
-  // Subtle mouse parallax on the background photo.
+  // React doesn't reliably render the `muted` attribute, which some browsers (iOS Safari) require
+  // for autoplay — set it on the element directly. Respect reduced-motion by leaving the poster up.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    video.play().catch(() => {});
+  }, []);
+
+  // Subtle mouse parallax on the background footage.
   useEffect(() => {
     let pending = false;
     const onMove = (e: MouseEvent) => {
@@ -44,7 +54,19 @@ export default function Hero() {
     <section id="top" className="hero">
       <div className="hero-burn">
         <div ref={bgRef} className="hero-bg">
-          <Image src={IMG.hero} alt="" fill priority sizes="100vw" className="cover" />
+          <video
+            ref={videoRef}
+            className="hero-video"
+            poster={IMG.heroPoster}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          >
+            <source src={VIDEO.heroMobile} type="video/mp4" media="(max-width: 768px)" />
+            <source src={VIDEO.hero} type="video/mp4" />
+          </video>
         </div>
       </div>
       <div className="hero-shade" />
@@ -65,7 +87,6 @@ export default function Hero() {
       <div className="hero-grain" />
 
       <div className="hero-content">
-        <Image className="hero-mark" src={IMG.mark} alt="" width={1254} height={796} priority />
         <div className="hero-tag">
           <span className="dash" />
           <span className="txt">Site 01 · Tirupati, Andhra Pradesh · Under construction</span>

@@ -15,7 +15,7 @@ export default function Materials() {
         <Reveal className="section-head">
           <div className="eyebrow-row">
             <Reveal as="span" line className="rule from-right" />
-            <span className="eyebrow">04 · Materials &amp; Craft</span>
+            <span className="eyebrow">05 · Materials &amp; Craft</span>
             <Reveal as="span" line className="rule from-left" />
           </div>
           <h2>Materials matter</h2>

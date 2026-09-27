@@ -1,8 +1,9 @@
 export const IMG = {
-  logoDark: "/images/logo-dark.png",
   logoLight: "/images/logo-light.png",
-  mark: "/images/mark.png",
-  hero: "/images/hero.jpg",
+  icon: "/images/icon.png",
+  wordmarkDark: "/images/wordmark-dark.png",
+  wordmarkLight: "/images/wordmark-light.png",
+  heroPoster: "/images/hero-poster.jpg",
   idea: "/images/idea.jpg",
   philosophy: "/images/philosophy.jpg",
   villaWarm: "/images/idea.jpg",
@@ -12,6 +13,11 @@ export const IMG = {
   interior: "/images/interior.jpg",
   facade: "/images/facade.jpg",
   living: "/images/living.jpg",
+} as const;
+
+export const VIDEO = {
+  hero: "/videos/hero-villas.mp4",
+  heroMobile: "/videos/hero-villas-720.mp4",
 } as const;
 
 export type Principle = { k: string; n: string; name: string; body: string };
@@ -95,4 +101,32 @@ export const MATERIALS: Material[] = [
   { name: "Metal", use: "Railings, screens", source: "Powder-coated steel", src: IMG.facade, body: "Steel sections detailed thin and powder-coated in a single tone, so the frame recedes and the view does not." },
   { name: "Wood", use: "Ceilings", source: "Engineered veneer", src: IMG.interior, body: "Engineered panels for anything long or overhead, where solid timber would move." },
   { name: "Lighting", use: "Throughout", source: "Specified per room", src: IMG.living, body: "Layered rather than central: task, wash and accent circuits, each on separate switching." },
+];
+
+export type ServiceKey = "solar" | "automation" | "interiors";
+
+export type Service = { key: ServiceKey; n: string; name: string; lede: string; points: string[] };
+
+export const SERVICES: Service[] = [
+  {
+    key: "solar",
+    n: "01",
+    name: "Solar",
+    lede: "Rooftop solar planned with the structure, not bolted on after. Panel layout, mounting and wiring are resolved at drawing stage, so the roof is built to carry it.",
+    points: ["Rooftop solar power systems", "Net-metering applications", "Solar water heating"],
+  },
+  {
+    key: "automation",
+    n: "02",
+    name: "Home Automation",
+    lede: "Lighting, climate, security and gates on one app. Conduits and network points go in during construction, so every wall is ready before the plaster goes on.",
+    points: ["Smart lighting and scenes", "CCTV and video door phones", "Smart locks and gate automation"],
+  },
+  {
+    key: "interiors",
+    n: "03",
+    name: "Interiors",
+    lede: "Complete interiors from the team that built the walls. One contract, one timeline, and finishes chosen to suit the home they go into.",
+    points: ["Modular kitchens and wardrobes", "False ceilings and lighting design", "Furniture, décor and soft finishes"],
+  },
 ];
