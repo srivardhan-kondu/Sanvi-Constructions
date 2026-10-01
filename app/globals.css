@@ -661,3 +661,31 @@ button { font-family: inherit; }
 @keyframes scCue { 0%, 100% { transform: translateY(0); opacity: 0.35; } 50% { transform: translateY(9px); opacity: 1; } }
 @keyframes scGrain { 0% { transform: translate(0, 0); } 50% { transform: translate(-2%, 1%); } 100% { transform: translate(1%, -2%); } }
 @keyframes mgKen { from { transform: scale(1.01); } to { transform: scale(1.09); } }
+
+/* ---------- 06 about ---------- */
+.about { background: var(--sand); padding: clamp(90px, 12vw, 160px) var(--gutter); }
+.about h2 { max-width: 18ch; font: 500 clamp(32px, 5vw, 68px) / 1.06 var(--playfair); color: var(--ink); }
+.team-grid {
+  margin-top: clamp(44px, 5vw, 70px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 360px));
+  justify-content: center;
+  gap: clamp(18px, 3vw, 44px);
+}
+.team-card { text-align: center; }
+.team-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  display: grid; place-items: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #efe3d3, #e3d2bb);
+  border: 1px solid rgba(42, 36, 32, 0.1);
+  border-top: 2px solid var(--gold);
+  border-radius: 4px;
+}
+.team-photo span { font: 500 clamp(44px, 6vw, 72px) / 1 var(--playfair); color: rgba(138, 94, 31, 0.5); }
+.team-card h3 { margin-top: 22px; font: 500 clamp(20px, 2vw, 26px) / 1.2 var(--playfair); color: var(--ink); }
+.team-role { margin-top: 6px; font: 500 13px/1.4 var(--hanken); letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-dark); }
+.team-phone { display: inline-block; margin-top: 12px; font: 500 16.5px/1.4 var(--hanken); color: var(--ink); text-decoration: none; }
+.team-phone:hover { color: var(--gold-dark); }
+@media (max-width: 600px) { .team-grid { grid-template-columns: minmax(0, 360px); } }

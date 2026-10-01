@@ -49,7 +49,7 @@ export default function Philosophy() {
             <p>{current.body}</p>
           </div>
 
-          <Reveal as="a" delay={210} href="#enquire" className="btn btn-line dark">
+          <Reveal as="a" delay={210} href="#about" className="btn btn-line dark">
             Know more about us
           </Reveal>
         </div>

@@ -130,3 +130,11 @@ export const SERVICES: Service[] = [
     points: ["Modular kitchens and wardrobes", "False ceilings and lighting design", "Furniture, décor and soft finishes"],
   },
 ];
+
+export type Person = { name: string; role: string; phone: string; initials: string; photo?: string };
+
+// Set `photo` to an image path (e.g. "/images/vijay.jpg") once photos are available.
+export const TEAM: Person[] = [
+  { name: "L Vijay Narasimha Reddy", role: "Founder & Proprietor", phone: "9000900562", initials: "LV" },
+  { name: "G Sudeswar Reddy", role: "Director", phone: "9666619711", initials: "GS" },
+];
